@@ -9,4 +9,5 @@ import { getAllProducts } from '../store';
   <div>
     <ProductsTable :products="getAllProducts" />
   </div>
+  <button @click="router.push('../components/ProductsTable.vue')">Nieuw product</button>
 </template>

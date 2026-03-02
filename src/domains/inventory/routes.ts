@@ -1,21 +1,23 @@
-import overview from './pages/overview.vue'
-import create from './pages/create.vue'
-import edit from './pages/edit.vue'
+
+import Overview from './pages/overview.vue'
+import Create from './pages/create.vue'
+import Edit from './pages/edit.vue'
 
 export default [
   {
     path: '/',            
-    name: 'overview',
-    component: overview
+    name: 'Overview',
+    component: Overview
   },
   {
     path: '/create',
-    name: 'create',
-    component: create
+    name: 'Create',
+    component: Create
   },
   {
     path: '/edit/:id',   
-    name: 'edit',
-    component: edit,      
+    name: 'Edit',
+    component: Edit,
+    props: true         
   }
-];
+]

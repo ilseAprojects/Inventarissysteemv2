@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { InventoryItem } from '../types';
 
-defineProps<{products: InventoryItem[]}>()
+defineProps<{ products: InventoryItem[] }>()
 
 </script>
 
@@ -19,15 +19,14 @@ defineProps<{products: InventoryItem[]}>()
     </thead>
 
     <tbody>
-        <tr v-for="(product, index) in products" :key="index">
-            <td>{{ product.name }} </td>
-            <td>{{ product.actualAmount }} </td>
-            <td>{{ product.minimumAmount }} </td>
-            <td> </td>
-            <!-- <button @click="routes.push('/edit')">Bewerken</button> -->
-        </tr>
+      <tr v-for="(product) in products">
+        <td>{{ product.name }} </td>
+        <td>{{ product.actualAmount }} </td>
+        <td>{{ product.minimumAmount }} </td>
+        <td> </td>
+        <!-- <button @click="routes.push('/edit')">Bewerken</button> -->
+      </tr>
 
     </tbody>
-
   </table>
 </template>
