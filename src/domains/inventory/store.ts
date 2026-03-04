@@ -11,3 +11,4 @@ const product = ref<InventoryItem[]>(
 );
 
 export const getAllProducts = computed(() => product.value)
+

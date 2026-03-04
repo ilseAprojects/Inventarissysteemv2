@@ -1,10 +1,11 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import {routes} from '.domains/inventory/routes'
+import { createMemoryHistory, createRouter } from 'vue-router'
+import { inventoryRoutes } from '../domains/inventory/routes'
+
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createMemoryHistory(),
   routes: [
-    ...routes
+    ...inventoryRoutes
   ]
 })
 

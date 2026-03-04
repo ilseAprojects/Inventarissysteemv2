@@ -1,7 +1,13 @@
 <script lang="ts" setup>
+import router from '../../../router';
+import Edit from '../pages/edit.vue';
 import type { InventoryItem } from '../types';
 
-defineProps<{ products: InventoryItem[] }>()
+
+defineProps<{ products: InventoryItem[] }>();
+
+const goToEdit = () => router.push(Edit);
+
 
 </script>
 
@@ -19,12 +25,12 @@ defineProps<{ products: InventoryItem[] }>()
     </thead>
 
     <tbody>
-      <tr v-for="(product) in products">
+        <tr v-for="product in products">
         <td>{{ product.name }} </td>
         <td>{{ product.actualAmount }} </td>
         <td>{{ product.minimumAmount }} </td>
         <td> </td>
-        <!-- <button @click="routes.push('/edit')">Bewerken</button> -->
+        <button @click="goToEdit">Bewerken</button>
       </tr>
 
     </tbody>

@@ -1,7 +1,14 @@
 <script lang="ts" setup>
-import ProductsTable from '../components/ProductsTable.vue';
+import { useRouter } from 'vue-router';
 import { getAllProducts } from '../store';
+import ProductsTable from '../components/ProductsTable.vue';
+import Order from './order.vue';
+import Create from './create.vue';
 
+const router = useRouter()
+
+const goToCreate = () => router.push(Create)
+const goToOrder = () => router.push(Order)
 
 </script>
 
@@ -9,5 +16,6 @@ import { getAllProducts } from '../store';
   <div>
     <ProductsTable :products="getAllProducts" />
   </div>
-  <button @click="router.push('../components/ProductsTable.vue')">Nieuw product</button>
+  <button @click="goToCreate">Nieuw product toevoegen</button>
+  <button @click="goToOrder">Bestellingen overzicht</button>
 </template>
