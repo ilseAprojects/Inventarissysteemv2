@@ -1,12 +1,30 @@
 <script lang="ts" setup>
+
 import ProductForm from '../components/ProductForm.vue';
-import { getAllProducts } from '../store';
+import { addProduct, } from '../store'; 
+import type { InventoryItem } from '../types';
+import router from '../../../router';
 
 
+const emptyProduct: InventoryItem = {
+  id: 0,
+  name: '',
+  actualAmount: 0,
+  minimumAmount: 0,
+};
+
+const handleSubmit = (newProduct: InventoryItem,) => {
+  addProduct(newProduct,)
+  router.push('/');
+};
 </script>
 
 <template>
-    <div>
-    <ProductForm> </ProductForm>
-    </div>
+  <h2>Product toevoegen</h2>
+  <div>
+    <ProductForm :products="emptyProduct" @submit="handleSubmit" />
+  </div>
+  <div>
+    <button @click="router.push('/')">Annuleren</button>
+  </div>
 </template>
