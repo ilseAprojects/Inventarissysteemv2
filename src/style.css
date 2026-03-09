@@ -2,26 +2,22 @@
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #858cff;
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: #aab0ff;
 }
-
 body {
   margin: 0;
   display: flex;
@@ -29,12 +25,10 @@ body {
   min-width: 320px;
   min-height: 100vh;
 }
-
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
-
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -43,26 +37,44 @@ button {
   font-weight: 500;
   font-family: inherit;
   background-color: #1a1a1a;
+  color: rgba(255, 255, 255, 0.87);
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #858cff;
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
-
 .card {
   padding: 2em;
 }
-
 #app {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+}
+th {
+  background-color: #1a1a1a;
+  color: rgba(255, 255, 255, 0.87);
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 600;
+}
+td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #333;
+}
+tr:hover {
+  background-color: rgba(150, 150, 255, 0.05);
 }
 
 @media (prefers-color-scheme: light) {
@@ -70,10 +82,28 @@ button:focus-visible {
     color: #213547;
     background-color: #ffffff;
   }
+  a {
+    color: #4a52cc;
+  }
   a:hover {
-    color: #747bff;
+    color: #3a41aa;
   }
   button {
     background-color: #f9f9f9;
+    color: #213547;
+    border-color: #ddd;
+  }
+  button:hover {
+    border-color: #4a52cc;
+  }
+  th {
+    background-color: #f0f0f0;
+    color: #213547;
+  }
+  td {
+    border-bottom: 1px solid #ddd;
+  }
+  tr:hover {
+    background-color: rgba(74, 82, 204, 0.05);
   }
 }

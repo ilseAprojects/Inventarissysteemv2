@@ -24,7 +24,4 @@ const handleSubmit = (newProduct: InventoryItem,) => {
   <div>
     <ProductForm :products="emptyProduct" @submit="handleSubmit" />
   </div>
-  <div>
-    <button @click="router.push('/')">Annuleren</button>
-  </div>
 </template>

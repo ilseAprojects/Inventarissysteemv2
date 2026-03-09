@@ -22,7 +22,4 @@ const handleSubmit = (updated: InventoryItem) => {
     <ProductForm v-if="product" :products="product" @submit="handleSubmit" />
     <p v-else>Product niet gevonden.</p>
   </div>
-  <div> 
-    <button @click="router.push('/')">Annuleren</button>
-  </div>
 </template>
