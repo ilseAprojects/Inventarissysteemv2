@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import router from '../../../router';
-
-import { removeProduct } from '../store';
+import { handleRemove } from '../store';
 import type { InventoryItem } from '../types';
 
 defineProps<{ products: InventoryItem[] }>();
@@ -31,7 +30,7 @@ const stockStatus = (product: InventoryItem) => {
     </thead>
 
     <tbody>
-        <tr v-for="product in products" :key="product.id">
+      <tr v-for="product in products" :key="product.id">
         <td>{{ product.name }} </td>
         <td>{{ product.actualAmount }} </td>
         <td>{{ product.minimumAmount }} </td>
@@ -40,8 +39,8 @@ const stockStatus = (product: InventoryItem) => {
         </td>
         <td>
           <button @click="goToEdit(product.id)">Bewerken</button>
-          <button @click="removeProduct(product.id)">Verwijderen</button>
-      </td>
+          <button class="delete-button" @click="handleRemove(product.id)">Verwijderen</button>
+        </td>
       </tr>
 
     </tbody>
@@ -49,7 +48,22 @@ const stockStatus = (product: InventoryItem) => {
 </template>
 
 <style scoped>
-.low-stock { background-color: orange; color: black; }
-.out-of-stock { background-color: red; color: white; }
-.ok { background-color: rgb(93, 170, 93); color: black }
+.low-stock {
+  background-color: orange;
+  color: black;
+}
+
+.out-of-stock {
+  background-color: #dd1212;
+  color: white;
+}
+
+.ok {
+  background-color: rgb(93, 170, 93);
+  color: black
+}
+
+.delete-button:hover {
+  background-color: #dd1212
+}
 </style>

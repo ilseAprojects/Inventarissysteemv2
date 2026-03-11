@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 
 import ProductForm from '../components/ProductForm.vue';
-import { addProduct, } from '../store'; 
+import { addProduct, } from '../store';
 import type { InventoryItem } from '../types';
 import router from '../../../router';
 

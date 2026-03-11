@@ -23,7 +23,7 @@ const toggleCheck = (product: InventoryItem) => {
 
 const toggleAll = () => {
   const shouldCheck = lowStockProducts.value.some(p => !checked.value[p.id]);
-  
+
   for (const product of lowStockProducts.value) {
     checked.value[product.id] = shouldCheck;
     if (shouldCheck) {
@@ -62,24 +62,19 @@ const handleSubmit = () => {
     <tbody>
       <tr v-for="product in lowStockProducts" :key="product.id">
         <td>
-  <label class="switch">
-    <input type="checkbox" :checked="checked[product.id]" @change="toggleCheck(product)" />
-    <div class="slider round"></div>
-  </label>
-</td>
+          <label class="switch">
+            <input type="checkbox" :checked="checked[product.id]" @change="toggleCheck(product)" />
+            <div class="slider round"></div>
+          </label>
+        </td>
         <td>{{ product.name }}</td>
         <td>{{ product.actualAmount }}</td>
         <td>{{ product.minimumAmount }}</td>
         <td>
-          <input
-            v-if="checked[product.id]"
-            type="number"
-            v-model.number="orderAmounts[product.id]"
-            :min="1"
-          />
+          <input v-if="checked[product.id]" type="number" v-model.number="orderAmounts[product.id]" :min="1" />
         </td>
       </tr>
-      <tr><button @click="toggleAll" >Alles selecteren</button></tr>
+      <tr><button @click="toggleAll">Alles selecteren</button></tr>
     </tbody>
   </table>
   <button @click="handleSubmit" :disabled="!Object.keys(orderAmounts).length">
@@ -95,14 +90,22 @@ const handleSubmit = () => {
   width: 60px;
   height: 34px;
 }
-.switch input { display: none; }
+
+.switch input {
+  display: none;
+}
+
 .slider {
   position: absolute;
   cursor: pointer;
-  top: 0; left: 0; right: 0; bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background-color: #ccc;
   transition: 0.4s;
 }
+
 .slider:before {
   position: absolute;
   content: "";
@@ -114,13 +117,26 @@ const handleSubmit = () => {
   transition: 0.4s;
 }
 
-input:checked + .slider { background-color: rgb(93, 170, 93) }
-input:focus + .slider { box-shadow: 0 0 1px rgb(93, 170, 93) }
-input:checked + .slider:before { transform: translateX(26px); }
-.slider.round { border-radius: 34px; }
-.slider.round:before { border-radius: 50%; }
+input:checked+.slider {
+  background-color: rgb(93, 170, 93)
+}
+
+input:focus+.slider {
+  box-shadow: 0 0 1px rgb(93, 170, 93)
+}
+
+input:checked+.slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
 
 
 /* css for checkbox from //https://codepen.io/EssSaibot/pen/zZmZbP */
-
 </style>
