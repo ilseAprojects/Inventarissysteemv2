@@ -4,7 +4,7 @@
 
 <template>
     <nav>
-    <a class='home' href="/">Home</a>
+        <a class='home' href="/">Home</a>
     </nav>
     <RouterView />
 

@@ -1,12 +1,9 @@
-import { createWebHistory, createRouter } from 'vue-router'
-import { inventoryRoutes } from '../domains/inventory/routes'
-
+import { createWebHistory, createRouter } from "vue-router";
+import { inventoryRoutes } from "../domains/inventory/routes";
 
 const router = createRouter({
   history: createWebHistory(),
-  routes: [
-    ...inventoryRoutes
-  ]
-})
+  routes: [...inventoryRoutes],
+});
 
-export default router
+export default router;
