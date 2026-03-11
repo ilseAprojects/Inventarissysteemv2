@@ -13,7 +13,7 @@ let idCounter = product.value.length + 1;
 export const getAllProducts = () => product.value;
 
 export const getProductById = (id: string) =>
-  product.value.find((p) => p.id === Number(id));
+  product.value.find((item) => item.id === Number(id));
 
 export const addProduct = (newProduct: InventoryItem) => {
   product.value.push({
@@ -22,21 +22,11 @@ export const addProduct = (newProduct: InventoryItem) => {
   });
 };
 
-export const handleRemove = (id: number) => {
-  if (!window.confirm("Weet je zeker dat je dit wilt verwijderen?")) return;
-  removeProduct(id);
-};
-
 export const removeProduct = (id: number) => {
   product.value = product.value.filter((item) => item.id !== id);
 };
 
-export const updateProduct = (updatedProduct: {
-  id: number;
-  name: string;
-  actualAmount: number;
-  minimumAmount: number;
-}) => {
+export const updateProduct = (updatedProduct: InventoryItem) => {
   const index = product.value.findIndex(
     (item) => item.id === updatedProduct.id,
   );

@@ -2,14 +2,15 @@
 import { computed, ref } from 'vue';
 import { getAllProducts, updateProduct } from '../store';
 import type { InventoryItem } from '../types';
-import router from '../../../router';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+const orderAmounts = ref<Record<number, number>>({});
+const checked = ref<Record<number, boolean>>({});
 
 const lowStockProducts = computed(() =>
   getAllProducts().filter(p => p.actualAmount < p.minimumAmount)
-);
-
-const orderAmounts = ref<Record<number, number>>({});
-const checked = ref<Record<number, boolean>>({});
+)
 
 const toggleCheck = (product: InventoryItem) => {
   checked.value[product.id] = !checked.value[product.id];
@@ -19,7 +20,7 @@ const toggleCheck = (product: InventoryItem) => {
   } else {
     delete orderAmounts.value[product.id];
   }
-};
+}
 
 const toggleAll = () => {
   const shouldCheck = lowStockProducts.value.some(p => !checked.value[p.id]);
@@ -32,7 +33,7 @@ const toggleAll = () => {
       delete orderAmounts.value[product.id];
     }
   }
-};
+}
 
 const handleSubmit = () => {
   for (const product of lowStockProducts.value) {
@@ -44,7 +45,7 @@ const handleSubmit = () => {
     }
   }
   router.push('/');
-};
+}
 </script>
 
 <template>
@@ -74,7 +75,7 @@ const handleSubmit = () => {
           <input v-if="checked[product.id]" type="number" v-model.number="orderAmounts[product.id]" :min="1" />
         </td>
       </tr>
-      <tr><button @click="toggleAll">Alles selecteren</button></tr>
+      <tr><td><button @click="toggleAll">Alles selecteren</button></td></tr>
     </tbody>
   </table>
   <button @click="handleSubmit" :disabled="!Object.keys(orderAmounts).length">

@@ -1,12 +1,12 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
-import { useRoute } from 'vue-router';
 import ProductForm from '../components/ProductForm.vue';
 import { getProductById, updateProduct } from '../store';
 import type { InventoryItem } from '../types';
-import router from '../../../router';
+import { useRoute, useRouter } from 'vue-router';
 
-const route = useRoute();
+const router = useRouter();
+const route = useRoute()
 
 const product = computed(() => getProductById(route.params.id as string));
 
@@ -17,9 +17,13 @@ const handleSubmit = (updated: InventoryItem) => {
 </script>
 
 <template>
-  <h2> Product bewerken </h2>
-  <div>
-    <ProductForm v-if="product" :products="product" @submit="handleSubmit" />
-    <p v-else>Product niet gevonden.</p>
+  <div v-if="product">
+    <h2> Product bewerken </h2>
+    <ProductForm :product="product" @submit="handleSubmit" />
+  </div>
+
+  <div v-else>
+    <p>Product niet gevonden.</p>
+     <button @click="router.push('/')">Terug</button>
   </div>
 </template>

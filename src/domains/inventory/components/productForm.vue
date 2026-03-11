@@ -1,18 +1,18 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import type { InventoryItem } from '../types';
-import router from '../../../router';
+import { useRouter } from 'vue-router';
 
-const { products } = defineProps<{ products: InventoryItem }>();
-const localForm = ref({ ...products });
+const { product } = defineProps<{ product: InventoryItem }>();
+const localForm = ref({ ...product });
+const router = useRouter();
 
 const emit = defineEmits(['submit']);
 
 const submit = () => {
   if (!localForm.value.name.trim()) return;
   emit('submit', localForm.value);
-  router.push({ name: 'Overview' });
-};
+}
 
 </script>
 

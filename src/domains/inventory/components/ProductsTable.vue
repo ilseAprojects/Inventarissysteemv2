@@ -1,17 +1,24 @@
 <script lang="ts" setup>
-import router from '../../../router';
-import { handleRemove } from '../store';
+import { removeProduct } from '../store';
 import type { InventoryItem } from '../types';
+import { useRouter } from 'vue-router';
 
+const router = useRouter();
 defineProps<{ products: InventoryItem[] }>();
 
-const goToEdit = (id: number) => router.push({ name: 'Edit', params: { id } });
+const goToEdit = (id: number) => router.push({ name: 'Edit', params: { id } })
 
 const stockStatus = (product: InventoryItem) => {
   if (product.actualAmount === 0) return { class: 'out-of-stock', text: 'Uitverkocht' };
   if (product.actualAmount < product.minimumAmount) return { class: 'low-stock', text: 'Tekort' };
   return { class: 'ok', text: 'OK' };
-};
+}
+
+ const handleRemove = (id: number) => {
+  if (!window.confirm("Weet je zeker dat je dit wilt verwijderen?")) return;
+  removeProduct(id);
+}
+
 
 
 </script>
