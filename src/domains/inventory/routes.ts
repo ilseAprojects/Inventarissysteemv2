@@ -20,7 +20,7 @@ export const inventoryRoutes = [
     component: Edit,
     props: true,
   },
-    {
+  {
     path: "/order",
     name: "Order",
     component: Order,

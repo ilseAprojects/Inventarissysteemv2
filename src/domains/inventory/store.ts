@@ -6,6 +6,9 @@ const product = ref<InventoryItem[]>([
   { id: 2, name: "B", actualAmount: 75, minimumAmount: 20 },
   { id: 3, name: "C", actualAmount: 18, minimumAmount: 20 },
   { id: 4, name: "D", actualAmount: 2, minimumAmount: 20 },
+  { id: 5, name: "E", actualAmount: 46, minimumAmount: 20 },
+  { id: 6, name: "F", actualAmount: 30, minimumAmount: 20 },
+  { id: 7, name: "G", actualAmount: 90, minimumAmount: 20 },
 ]);
 
 let idCounter = product.value.length + 1;

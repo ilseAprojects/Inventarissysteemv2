@@ -14,7 +14,7 @@ const stockStatus = (product: InventoryItem) => {
   return { class: 'ok', text: 'OK' };
 }
 
- const handleRemove = (id: number) => {
+const handleRemove = (id: number) => {
   if (!window.confirm("Weet je zeker dat je dit wilt verwijderen?")) return;
   removeProduct(id);
 }

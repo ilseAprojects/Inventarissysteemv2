@@ -6,7 +6,7 @@ import type { InventoryItem } from '../types';
 import { useRoute, useRouter } from 'vue-router';
 
 const router = useRouter();
-const route = useRoute()
+const route = useRoute();
 
 const product = computed(() => getProductById(route.params.id as string));
 
