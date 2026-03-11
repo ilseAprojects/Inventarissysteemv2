@@ -79,7 +79,7 @@ const handleSubmit = () => {
           />
         </td>
       </tr>
-      <button @click="toggleAll" >Alles selecteren</button>
+      <tr><button @click="toggleAll" >Alles selecteren</button></tr>
     </tbody>
   </table>
   <button @click="handleSubmit" :disabled="!Object.keys(orderAmounts).length">
