@@ -138,6 +138,5 @@ input:checked+.slider:before {
   border-radius: 50%;
 }
 
-
 /* checkbox from //https://codepen.io/EssSaibot/pen/zZmZbP */
 </style>
