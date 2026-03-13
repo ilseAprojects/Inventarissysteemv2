@@ -18,15 +18,15 @@ const submit = () => {
 
 <template>
   <form @submit.prevent="submit" class="form">
-    <div class="form-group">
+    <div class="form-imput">
       <label>Naam</label>
       <input v-model="localForm.name" type="text" required>
     </div>
-    <div class="form-group">
+    <div class="form-imput">
       <label>Huidige voorraad</label>
       <input v-model="localForm.actualAmount" type="number" required>
     </div>
-    <div class="form-group">
+    <div class="form-imput">
       <label>Minimale voorraad</label>
       <input v-model="localForm.minimumAmount" type="number" required>
     </div>
@@ -50,7 +50,7 @@ const submit = () => {
   border: 1px solid #333;
 }
 
-.form-group {
+.form-imput {
   display: flex;
   flex-direction: column;
   gap: 0.4rem;

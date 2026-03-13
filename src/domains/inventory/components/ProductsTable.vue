@@ -11,7 +11,7 @@ const goToEdit = (id: number) => router.push({ name: 'Edit', params: { id } })
 const stockStatus = (product: InventoryItem) => {
   if (product.actualAmount === 0) return { class: 'out-of-stock', text: 'Uitverkocht' };
   if (product.actualAmount < product.minimumAmount) return { class: 'low-stock', text: 'Tekort' };
-  return { class: 'ok', text: 'OK' };
+  return { class: 'stocked', text: 'Oke' };
 }
 
 const handleRemove = (id: number) => {
@@ -65,7 +65,7 @@ const handleRemove = (id: number) => {
   color: white;
 }
 
-.ok {
+.stocked {
   background-color: rgb(93, 170, 93);
   color: black
 }
