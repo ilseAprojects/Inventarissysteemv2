@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
-import ProductForm from '../components/ProductForm.vue';
+import ProductForm from '../components/productForm.vue';
 import { getProductById, updateProduct } from '../store';
 import type { InventoryItem } from '../types';
 import { useRoute, useRouter } from 'vue-router';

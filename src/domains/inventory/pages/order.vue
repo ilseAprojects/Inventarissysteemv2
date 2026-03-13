@@ -139,5 +139,5 @@ input:checked+.slider:before {
 }
 
 
-/* css for checkbox from //https://codepen.io/EssSaibot/pen/zZmZbP */
+/* checkbox from //https://codepen.io/EssSaibot/pen/zZmZbP */
 </style>
