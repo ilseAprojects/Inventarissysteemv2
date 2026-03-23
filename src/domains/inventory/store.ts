@@ -1,7 +1,7 @@
-import { ref } from "vue";
-import type { InventoryItem } from "./types";
+import { computed, ref } from "vue";
+import type { Product } from "./types";
 
-const product = ref<InventoryItem[]>([
+const product = ref<Product[]>([
   { id: 1, name: "A", actualAmount: 50, minimumAmount: 20 },
   { id: 2, name: "B", actualAmount: 75, minimumAmount: 20 },
   { id: 3, name: "C", actualAmount: 18, minimumAmount: 20 },
@@ -13,12 +13,12 @@ const product = ref<InventoryItem[]>([
 
 let idCounter = product.value.length + 1;
 
-export const getAllProducts = () => product.value;
+export const getAllProducts = computed(() =>product.value);
 
-export const getProductById = (id: string) =>
-  product.value.find((item) => item.id === Number(id));
+export const getProductById = (id: string) => 
+  computed(() => product.value.find((item) => item.id === Number(id)));
 
-export const addProduct = (newProduct: InventoryItem) => {
+export const addProduct = (newProduct: Product) => {
   product.value.push({
     ...newProduct,
     id: idCounter++,
@@ -29,7 +29,7 @@ export const removeProduct = (id: number) => {
   product.value = product.value.filter((item) => item.id !== id);
 };
 
-export const updateProduct = (updatedProduct: InventoryItem) => {
+export const updateProduct = (updatedProduct: Product) => {
   const index = product.value.findIndex(
     (item) => item.id === updatedProduct.id,
   );

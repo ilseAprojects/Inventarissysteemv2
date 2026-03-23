@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
-import type { InventoryItem } from '../types';
+import type { Product } from '../types';
 import { useRouter } from 'vue-router';
 
-const { product } = defineProps<{ product: InventoryItem }>();
+const { product } = defineProps<{ product: Product }>();
 const localForm = ref({ ...product });
 const router = useRouter();
 

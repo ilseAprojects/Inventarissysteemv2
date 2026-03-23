@@ -1,16 +1,15 @@
 <script lang="ts" setup>
-import { computed } from 'vue';
 import ProductForm from '../components/productForm.vue';
 import { getProductById, updateProduct } from '../store';
-import type { InventoryItem } from '../types';
+import type { Product } from '../types';
 import { useRoute, useRouter } from 'vue-router';
 
 const router = useRouter();
 const route = useRoute();
 
-const product = computed(() => getProductById(route.params.id as string));
+const product = getProductById(route.params.id as string);
 
-const handleSubmit = (updated: InventoryItem) => {
+const handleSubmit = (updated: Product) => {
   updateProduct(updated);
   router.push('/');
 };

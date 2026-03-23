@@ -1,21 +1,20 @@
 <script lang="ts" setup>
 import { computed, ref } from 'vue';
 import { getAllProducts, updateProduct } from '../store';
-import type { InventoryItem } from '../types';
+import type { Product } from '../types';
 import { useRouter } from 'vue-router';
 
 const router = useRouter();
 const orderAmounts = ref<Record<number, number>>({});
 const checked = ref<Record<number, boolean>>({});
 
-const lowStockProducts = computed(() =>
-  getAllProducts().filter(p => p.actualAmount < p.minimumAmount)
-)
+const products = getAllProducts
 
-const toggleCheck = (product: InventoryItem) => {
+const lowStockProducts = computed(() => products.value.filter(product => product.actualAmount < product.minimumAmount))
+
+const toggleCheck = (product: Product) => {
   checked.value[product.id] = !checked.value[product.id];
   if (checked.value[product.id]) {
-
     orderAmounts.value[product.id] = product.minimumAmount - product.actualAmount;
   } else {
     delete orderAmounts.value[product.id];

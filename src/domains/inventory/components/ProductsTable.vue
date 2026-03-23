@@ -1,14 +1,14 @@
 <script lang="ts" setup>
 import { removeProduct } from '../store';
-import type { InventoryItem } from '../types';
+import type { Product } from '../types';
 import { useRouter } from 'vue-router';
 
 const router = useRouter();
-defineProps<{ products: InventoryItem[] }>();
+defineProps<{ products: Product[] }>();
 
 const goToEdit = (id: number) => router.push({ name: 'Edit', params: { id } })
 
-const stockStatus = (product: InventoryItem) => {
+const stockStatus = (product: Product) => {
   if (product.actualAmount === 0) return { class: 'out-of-stock', text: 'Uitverkocht' };
   if (product.actualAmount < product.minimumAmount) return { class: 'low-stock', text: 'Tekort' };
   return { class: 'stocked', text: 'Oke' };
